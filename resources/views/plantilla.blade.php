@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="<?= asset('admin') ?>/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="<?= asset('admin') ?>/assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     Now UI Dashboard by Creative Tim
@@ -16,6 +15,10 @@
   <link href="<?= asset('admin') ?>/assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="<?= asset('admin') ?>/assets/css/now-ui-dashboard.css" rel="stylesheet" />
   <link href="<?= asset('admin') ?>/assets/demo/demo.css" rel="stylesheet" />
+
+  <link href="<?= asset('sweetaler2') ?>/dist/sweetalert2.css" rel="stylesheet">
+  <link href="<?= asset('sweetaler2') ?>/css/animate.css" rel="stylesheet">
+  <script src="<?= asset('admin') ?>/assets/js/core/jquery.min.js"></script>
 </head>
 
 <body class="">
@@ -32,23 +35,35 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="<?php if($menu==1) echo 'active'; ?>">
-            <a href="/"> <i class="now-ui-icons design_app"></i> <p>INICIO</p>  </a>
+          <li class="<?php if ($menu == 1) echo 'active'; ?>">
+            <a href="/"> <i class="now-ui-icons design_app"></i>
+              <p>INICIO</p>
+            </a>
           </li>
-          <li class="<?php if($menu==2) echo 'active'; ?>">
-            <a href="/adminProductos"> <i class="now-ui-icons education_atom"></i> <p>ADMIN PRODUCTO</p> </a>
-          </li>
-          <li>
-            <a href="./map.html">  <i class="now-ui-icons location_map-big"></i> <p>MAPAS</p> </a>
-          </li>
-          <li>
-            <a href="./notifications.html"> <i class="now-ui-icons ui-1_bell-53"></i> <p>NOTIFICACION</p> </a>
+          <li class="<?php if ($menu == 2) echo 'active'; ?>">
+            <a href="/adminProductos"> <i class="now-ui-icons education_atom"></i>
+              <p>ADMIN PRODUCTO</p>
+            </a>
           </li>
           <li>
-            <a href="./user.html"> <i class="now-ui-icons users_single-02"></i> <p>PERFIL DE USUARIO</p>  </a>
+            <a href="./map.html"> <i class="now-ui-icons location_map-big"></i>
+              <p>MAPAS</p>
+            </a>
           </li>
           <li>
-            <a href="./tables.html">  <i class="now-ui-icons design_bullet-list-67"></i>  <p>LISTA DE TABLAS</p>  </a>
+            <a href="./notifications.html"> <i class="now-ui-icons ui-1_bell-53"></i>
+              <p>NOTIFICACION</p>
+            </a>
+          </li>
+          <li>
+            <a href="./user.html"> <i class="now-ui-icons users_single-02"></i>
+              <p>PERFIL DE USUARIO</p>
+            </a>
+          </li>
+          <li>
+            <a href="./tables.html"> <i class="now-ui-icons design_bullet-list-67"></i>
+              <p>LISTA DE TABLAS</p>
+            </a>
           </li>
 
         </ul>
@@ -73,7 +88,7 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
-          
+
         </div>
       </nav>
       <!-- End Navbar -->
@@ -91,7 +106,7 @@
 
       <footer class="footer">
         <div class=" container-fluid ">
-          
+
           <div class="copyright" id="copyright">
             &copy; <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
@@ -101,7 +116,6 @@
       </footer>
     </div>
   </div>
-  <script src="<?= asset('admin') ?>/assets/js/core/jquery.min.js"></script>
   <script src="<?= asset('admin') ?>/assets/js/core/popper.min.js"></script>
   <script src="<?= asset('admin') ?>/assets/js/core/bootstrap.min.js"></script>
   <script src="<?= asset('admin') ?>/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -109,12 +123,14 @@
   <script src="<?= asset('admin') ?>/assets/js/plugins/chartjs.min.js"></script>
   <script src="<?= asset('admin') ?>/assets/js/plugins/bootstrap-notify.js"></script>
   <script src="<?= asset('admin') ?>/assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-  <script src="<?= asset('admin') ?>/assets/demo/demo.js"></script>
-  <script>
+  
+  <script src="<?= asset('sweetaler2') ?>/dist/sweetalert2.js"></script>
+	<script src="<?= asset('sweetaler2') ?>/js/codigo.js"></script>
+  <!--<script>
     $(document).ready(function() {
       demo.initDashboardPageCharts();
     });
-  </script>
+  </script>-->
 </body>
 
 </html>

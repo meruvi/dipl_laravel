@@ -20,6 +20,7 @@ class CreateProductosTable extends Migration
             $table->text('pro_descripcion')->nullable();
             $table->integer('pro_stock')->unsigned();
             $table->date('pro_fecha_reg');
+            $table->string('pro_item',15)->nullable();
             $table->string('pro_estado',15)->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('categoria_id')->index('categoria_id');

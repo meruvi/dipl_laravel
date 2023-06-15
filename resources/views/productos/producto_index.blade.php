@@ -8,7 +8,7 @@
                 <h4 class="card-title"> ADMINISTRACIÓN DE PRODUCTOS</h4>
             </div>
             <div class="card-body">
-                <a href="" class="btn btn-success">NUEVO REGISTRO</a>
+                <a href="/nuevoProducto" class="btn btn-success">NUEVO REGISTRO</a>
                 <a href="" class="btn btn-danger">REPORTE PDF</a>
                 <a href="" class="btn btn-info">REPORTE EXCEL</a>
                 <div class="table-responsive">
@@ -27,21 +27,21 @@
                         </thead>
                         <tbody>
                             <?php foreach ($listado as $key => $value) : ?>
-                            <tr>
-                                <td><?= ($key+1) ?></td>
-                                <td><?= $value->pro_imagen ?></td>
-                                <td></td>
-                                <td><?= $value->cat_nombre ?></td>
-                                <td><?= $value->pro_nombre ?></td>
-                                <td><?= $value->pro_descripcion ?></td>
-                                <td><?= $value->pro_stock ?></td>
-                                <td><?= $value->pro_fecha_reg ?></td>
-                                <td><?= $value->pro_estado ?></td>
-                                <td>
-                                <a href="" class="btn btn-warning">EDITAR</a>
-                                <a href="" class="btn btn-danger">ELIMINAR</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td><?= ($key + 1) ?></td>
+                                    <td><img src="/imagen_producto/<?= $value->pro_imagen ?>" width="50" /></td>
+                                    <td><?= $value->pro_item ?></td>
+                                    <td><?= $value->cat_nombre ?></td>
+                                    <td><?= $value->pro_nombre ?></td>
+                                    <td><?= $value->pro_descripcion ?></td>
+                                    <td><?= $value->pro_stock ?></td>
+                                    <td><?= $value->pro_fecha_reg ?></td>
+                                    <td><?= $value->pro_estado ?></td>
+                                    <td>
+                                        <a href="/editarProducto/<?= $value->id ?>" class="btn btn-warning">EDITAR</a>
+                                        <a href="#" onclick="eliminarProducto('<?= $value->id ?>')" class="btn btn-danger">ELIMINAR</a>
+                                    </td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
@@ -51,5 +51,36 @@
     </div>
 
 </div>
+<script>
+    function eliminarProducto(id) {
+        //alert(id)
+        Swal.fire({
+            title: '¿Estas seguro de eliminar este registro?',
+            text: "",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+            if (result.value) {
+
+
+                $.post('<?= route('pro.eliminarProducto') ?>', {
+                    id
+                }, function() {
+                    Swal.fire(
+                        'ELIMINADO!',
+                        '',
+                        'success'
+                    )
+                    window.location=''
+                })
+
+
+            }
+        })
+    }
+</script>
 
 @endsection
